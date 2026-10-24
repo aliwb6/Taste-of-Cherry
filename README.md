@@ -28,7 +28,7 @@ Slides do not change by themselves. The number and line at the bottom show your 
 
 Each slide uses the image manually selected in `index.html`. The sizing fix preserves all nine selections and every image file. The film is directed by Abbas Kiarostami, with cinematography by Homayoun Payvar. The original Janus Films source record is in [assets/README.md](assets/README.md); that record predates the later manual image selections.
 
-Images sit inside proportional, centred frames. `object-fit: contain`, automatic dimensions, and maximum frame bounds preserve the full original aspect ratio without cropping or stretching. Small source files stay at or below their native size within the presentation stage; they are not blown up to fill a large screen. Unused space has a subtle matte background. HTML image dimensions match the actual files. Keep those dimensions accurate if you select a new image later.
+Photographs occupy 45–48% of the slide width, with individual placement for the opening, director, pictures, and closing slides. Each image uses `width: 100%` and `height: auto` inside a figure that follows its natural height. There are no fixed-height image boxes, matte backgrounds, borders, padding, or source-size caps. The entire photograph scales proportionally with the presentation, without cropping or stretching. Lower-resolution files can look softer when enlarged to their intended layout width. HTML image dimensions match the actual files. Keep those dimensions accurate if you select a new image later.
 
 The design follows the actual photographs: pale dry hills, muted green daylight, earthy cloth, and dark car interiors. Photos keep their original colours. Text sits outside the image frames so faces and details remain visible. The 16:9 stage fits the available space above a separate control area, including on short phone screens. There is no fake scenery, extra film grain, or automatic animation. Text uses local serif and sans-serif font stacks, so no web font download is needed.
 
@@ -55,7 +55,7 @@ python3 -m venv /tmp/taste-tests
 TASTE_CHROME=/usr/bin/google-chrome-stable /tmp/taste-tests/bin/python tests/browser-check.py
 ```
 
-Set `TASTE_CHROME` to your Chrome or Chromium executable. The test works offline using `index.html` directly. It checks all nine slides at 1920 × 1080, 1366 × 768, 1280 × 800, 768 × 1024, 390 × 844, and 844 × 390. It checks image loading, natural aspect ratio, no upscaling, frame bounds, no image/text overlap, no horizontal overflow, keyboard and button controls, rapid navigation, native full screen, swipe events, reduced motion, and JavaScript errors. Screenshots go to `/tmp/taste-image-check`.
+Set `TASTE_CHROME` to your Chrome or Chromium executable. The test works offline using `index.html` directly. It captures all nine slides at 1920 × 1080, 1366 × 768, 1280 × 800, 768 × 1024, 390 × 844, and 844 × 390. It checks image loading, natural aspect ratio, figures that fit their photos, image widths between 45–55% of the slide, no cropping, no image/text overlap, no horizontal overflow, keyboard and button controls, rapid navigation, native full screen, swipe events, reduced motion, and JavaScript errors. Screenshots go to `/tmp/taste-image-check`.
 
 ## GitHub Pages — after image permission is confirmed
 

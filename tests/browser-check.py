@@ -36,20 +36,19 @@ with sync_playwright() as p:
             assert stage['y'] + stage['height'] <= height + 1
             assert abs(stage['width'] / stage['height'] - 16/9) < .001
             # Compare actual image boxes with the natural image ratio, not just
-            # the HTML width/height metadata. Every edge must be visible and
-            # no image may overlap text or grow beyond its native stage size.
+            # the HTML width/height metadata. The image must fill its figure
+            # naturally, occupy a substantial slide area and stay clear of text.
             image_issues = page.locator('.slide.active').evaluate('''slide => {
               const img = slide.querySelector('.film-image');
               const frame = img.closest('.film-frame').getBoundingClientRect();
               const b = img.getBoundingClientRect();
-              const style = getComputedStyle(img);
               const stage = document.querySelector('#stage').getBoundingClientRect();
-              const scale = stage.width / 1920;
               const problems = [];
-              if (style.objectFit !== 'contain') problems.push('Image can crop');
               if (Math.abs((b.width/b.height) / (img.naturalWidth/img.naturalHeight) - 1) > .005) problems.push('Image distorted');
-              if (b.left < frame.left-1 || b.right > frame.right+1 || b.top < frame.top-1 || b.bottom > frame.bottom+1) problems.push('Image outside frame');
-              if (b.width > img.naturalWidth*scale+1 || b.height > img.naturalHeight*scale+1) problems.push('Image upscaled');
+              if (Math.abs(b.width-frame.width) > 1 || Math.abs(b.height-frame.height) > 1 || Math.abs(b.left-frame.left) > 1 || Math.abs(b.top-frame.top) > 1) problems.push('Empty space in figure');
+              const fraction = b.width / stage.width;
+              if (fraction < .449 || fraction > .551) problems.push('Image width outside 45–55% of slide');
+              if (b.left < stage.left-1 || b.right > stage.right+1 || b.top < stage.top-1 || b.bottom > stage.bottom+1) problems.push('Image cropped by stage');
               for (const el of slide.querySelectorAll('.reveal,.techniques,.director-years,.corner-note,.award-foot,.thanks')) {
                 const t = el.getBoundingClientRect();
                 if (b.left < t.right && b.right > t.left && b.top < t.bottom && b.bottom > t.top) problems.push('Image overlaps '+el.className);
@@ -108,4 +107,4 @@ with sync_playwright() as p:
     assert page.locator('.slide.active').evaluate('el => getComputedStyle(el).transitionDuration') == '0s'
     assert not errors, errors
     browser.close()
-print('PASS: all 9 slides at 6 sizes, uncropped native-ratio images, no upscaling, no image/text overlap, viewport bounds, keyboard, buttons, native fullscreen, swipe, reduced motion, offline loading and JS errors.')
+print('PASS: all 9 slides at 6 sizes, natural image ratios, close-fitting figures, 45–55% image widths, no cropping or image/text overlap, viewport bounds, keyboard, buttons, native fullscreen, swipe, reduced motion, offline loading and JS errors.')

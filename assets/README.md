@@ -15,7 +15,7 @@ The user later selected additional images in `index.html` and replaced some file
 - `stills/bagheri.jpg`: original `45 image 3.jpg`, 3139 × 2037 pixels. Mr. Bagheri talks in the car. Used on slides 6 and 8.
 - `stills/gates.jpg`: original `45 image 4.jpg`, 3107 × 2105 pixels. Mr. Badii walks through open gates. Used on slides 1, 3, 7, and 9. On slide 3 this is an example of the director's work, **not a portrait of Kiarostami**.
 
-The sizing fix does not alter image files. CSS uses `object-fit: contain` in centred frames, with automatic sizes capped by the frame and the source dimensions. The complete image is shown without stretching, cropping, or upscaling. Text sits outside the image frames.
+The sizing fix does not alter image files. Photographs scale to their allocated slide width using `width: 100%` and `height: auto`. Each figure follows the photograph’s natural aspect ratio without padding, background panels, or fixed heights. The complete image is shown without stretching or cropping. Text sits outside the photographs.
 
 ## Permission limits and missing images
 

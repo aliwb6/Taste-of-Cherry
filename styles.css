@@ -8,11 +8,11 @@ button { font:inherit; touch-action:manipulation; }
 .deck-stage { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:hidden; transform-origin:0 0; background:var(--paper); }
 .slide { position:absolute; inset:0; width:1920px; height:1080px; overflow:hidden; visibility:hidden; opacity:0; pointer-events:none; background:var(--paper); transition:opacity var(--duration-slow) var(--ease-smooth-out),visibility 0s linear var(--duration-slow); }
 .slide.active { visibility:visible; opacity:1; pointer-events:auto; z-index:1; transition-delay:0s; }
-/* Each photo gets its own proportional area inside the scaled stage.
-   Auto sizing and intrinsic HTML dimensions prevent upscaling small sources.
-   Contain preserves every edge; any unused space becomes a quiet matte. */
-.film-frame { position:absolute; left:48%; top:10%; width:47%; height:77%; margin:0; padding:28px; display:grid; grid-template: minmax(0,1fr) / minmax(0,1fr); place-items:center; background:rgba(36,40,33,.07); }
-.film-image { display:block; width:auto; height:auto; max-width:100%; max-height:100%; min-width:0; min-height:0; object-fit:contain; object-position:center; }
+/* Width sets the composition; the photograph supplies its own height.
+   The figure hugs the image, with no matte, padding, crop or native-size cap.
+   The existing 16:9 stage scales this composition uniformly on each device. */
+.film-frame { position:absolute; left:48%; top:50%; width:47%; height:auto; margin:0; padding:0; transform:translateY(-50%); }
+.film-image { display:block; width:100%; height:auto; max-width:100%; }
 h1,h2,p { margin:0; }
 h1,h2 { font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif; font-weight:400; letter-spacing:-.045em; line-height:1.02; }
 h1 { font-size:172px; } h2 { font-size:112px; } p { font-size:36px; line-height:1.48; }
@@ -20,7 +20,7 @@ h1 { font-size:172px; } h2 { font-size:112px; } p { font-size:36px; line-height:
 .reveal,.techniques,.director-years,.corner-note,.award-foot,.thanks { position:absolute; z-index:2; }
 .reveal { width:760px; } .reveal h2 { margin-bottom:45px; }
 .opening { color:var(--light); background:#242821; }
-.opening .film-frame { left:48%; top:14%; width:47%; height:68%; background:rgba(225,223,203,.05); }
+.opening .film-frame { top:49%; }
 .opening-copy { top:260px; left:145px; width:700px; }
 .opening h1 { font-size:145px; margin-bottom:50px; } .subline { font-size:32px; }
 .corner-note { left:150px; bottom:125px; font-size:25px; }
@@ -28,7 +28,7 @@ h1 { font-size:172px; } h2 { font-size:112px; } p { font-size:36px; line-height:
 .hook-copy { top:190px; left:140px; width:720px; }
 .hook h2 { font-size:118px; }
 .hook-copy > p:last-child { font-size:38px; line-height:1.7; margin-top:65px; }
-.director .film-frame { left:5%; width:42%; }
+.director .film-frame { left:4%; width:45%; }
 .director-copy { top:158px; left:1005px; width:770px; }
 .director h2 { font-size:108px; }
 .director .lede { font-size:34px; line-height:1.35; margin-bottom:34px; }
@@ -36,12 +36,12 @@ h1 { font-size:172px; } h2 { font-size:112px; } p { font-size:36px; line-height:
 .director-years { bottom:120px; left:1010px; display:flex; align-items:center; gap:25px; font-size:25px; }
 .director-years i { width:100px; border-top:1px solid var(--olive); }
 .story { color:var(--light); background:#242821; }
-.story .film-frame { left:47%; background:rgba(225,223,203,.05); }
+.story .film-frame { left:47%; }
 .story-paper { top:180px; left:140px; width:720px; }
 .story h2 { font-size:120px; }
 .story p:not(.credit) { font-size:34px; line-height:1.65; }
 .story .quiet { margin-top:38px; color:#d2cfb5; }
-.visual .film-frame { left:48%; top:9%; width:47%; height:53%; }
+.visual .film-frame { top:35%; }
 .visual-copy { left:140px; top:145px; width:710px; }
 .visual h2 { font-size:100px; }
 .techniques { left:140px; right:140px; top:752px; display:grid; grid-template-columns:repeat(3,1fr); gap:75px; }
@@ -54,19 +54,19 @@ h1 { font-size:172px; } h2 { font-size:112px; } p { font-size:36px; line-height:
 .meaning-list { margin-top:65px; display:grid; gap:30px; }
 .meaning-list p { font-size:34px; }
 .recognition { background:#323b30; color:var(--light); }
-.recognition .film-frame { left:48%; background:rgba(225,223,203,.05); }
+.recognition .film-frame { left:48%; }
 .recognition-copy { top:155px; left:140px; width:700px; }
 .award { font-size:37px; color:#d8d5b7; margin:60px 0 30px; }
 .recognition h2 { font-size:145px; line-height:.95; }
 .recognition-copy > p:last-child { font-size:33px; line-height:1.5; }
 .award-foot { left:140px; bottom:115px; width:700px; font-size:24px; line-height:1.4; }
 .interpretation { background:#242821; }
-.interpretation .film-frame { left:48%; background:rgba(225,223,203,.05); }
+.interpretation .film-frame { left:48%; }
 .interpretation-copy { top:220px; left:140px; width:730px; color:var(--light); }
 .interpretation h2 { font-size:100px; }
 .interpretation-copy > p:last-child { width:690px; font-size:36px; line-height:1.55; margin-top:60px; }
 .closing { background:var(--paper); }
-.closing .film-frame { left:5%; top:4%; width:90%; height:56%; padding:18px; }
+.closing .film-frame { left:26%; top:4%; width:48%; transform:none; }
 .closing-copy { top:700px; left:140px; width:1630px; }
 .closing-copy .credit { display:none; }
 .closing h2 { font-size:84px; margin-bottom:25px; }
