@@ -26,11 +26,11 @@ Slides do not change by themselves. The number and line at the bottom show your 
 
 ## Real film images and credits
 
-The three photographs come from the **official Janus Films stills download** for this film. They are stored locally at their original resolution (over 3000 pixels wide). They show the soldier in the car, Mr. Bagheri talking, and Mr. Badii at the gates. The film is directed by Abbas Kiarostami, with cinematography by Homayoun Payvar. Stills courtesy of Janus Films; copyright remains with the respective rights holders.
+Each slide uses the image manually selected in `index.html`. The sizing fix preserves all nine selections and every image file. The film is directed by Abbas Kiarostami, with cinematography by Homayoun Payvar. The original Janus Films source record is in [assets/README.md](assets/README.md); that record predates the later manual image selections.
 
-See [assets/README.md](assets/README.md) for the original download URL, original filenames, sizes, slide uses, and permission limits. The package has three high-resolution photos and one very small photo. The small one is not used. Some slides reuse the large photos with different crops. A high-resolution road-only image with clear reuse terms is still missing. No artificial pictures or unrelated stock images replace it.
+Images sit inside proportional, centred frames. `object-fit: contain`, automatic dimensions, and maximum frame bounds preserve the full original aspect ratio without cropping or stretching. Small source files stay at or below their native size within the presentation stage; they are not blown up to fill a large screen. Unused space has a subtle matte background. HTML image dimensions match the actual files. Keep those dimensions accurate if you select a new image later.
 
-The design follows the actual photographs: pale dry hills, muted green daylight, earthy cloth, and dark car interiors. Photos keep their original colours. Text has a plain background or dark overlay. There is no fake scenery, extra film grain, or automatic animation. Text uses local serif and sans-serif font stacks, so no web font download is needed.
+The design follows the actual photographs: pale dry hills, muted green daylight, earthy cloth, and dark car interiors. Photos keep their original colours. Text sits outside the image frames so faces and details remain visible. The 16:9 stage fits the available space above a separate control area, including on short phone screens. There is no fake scenery, extra film grain, or automatic animation. Text uses local serif and sans-serif font stacks, so no web font download is needed.
 
 **Public image rights are not confirmed.** The distributor offers the files as promotional stills, but supplies no explicit general licence for public website or repository redistribution. Download access and attribution do not grant those rights. The local copy is prepared for the requested classroom discussion. Confirm permitted use with the institution/rightsholder. Before public hosting or public distribution, obtain the needed permission from Janus using the contact details on its film page. Do not treat these images as freely licensed. No public deployment or push containing the photos is part of this update without that clearance.
 
@@ -55,7 +55,7 @@ python3 -m venv /tmp/taste-tests
 TASTE_CHROME=/usr/bin/google-chrome-stable /tmp/taste-tests/bin/python tests/browser-check.py
 ```
 
-Set `TASTE_CHROME` to your Chrome or Chromium executable. The test works offline using `index.html` directly. It checks all nine slides at 1280 × 720, 1920 × 1080, 1024 × 768, and 390 × 844. It checks image loading, slide and text bounds, keyboard and button controls, rapid navigation, native full screen, swipe events, reduced motion, and JavaScript errors. Screenshots go to `/tmp/taste-check`.
+Set `TASTE_CHROME` to your Chrome or Chromium executable. The test works offline using `index.html` directly. It checks all nine slides at 1920 × 1080, 1366 × 768, 1280 × 800, 768 × 1024, 390 × 844, and 844 × 390. It checks image loading, natural aspect ratio, no upscaling, frame bounds, no image/text overlap, no horizontal overflow, keyboard and button controls, rapid navigation, native full screen, swipe events, reduced motion, and JavaScript errors. Screenshots go to `/tmp/taste-image-check`.
 
 ## GitHub Pages — after image permission is confirmed
 

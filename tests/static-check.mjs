@@ -3,7 +3,8 @@ import { readFileSync } from 'node:fs';
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../styles.css', import.meta.url), 'utf8');
 const js = readFileSync(new URL('../script.js', import.meta.url), 'utf8');
-const slides = (html.match(/<section class="slide/g) || []).length;
+// Tags may span multiple lines after the HTML has been formatted.
+const slides = (html.match(/<section\b[^>]*\bclass=["'][^"']*\bslide\b[^"']*["']/g) || []).length;
 
 if (slides !== 9) throw new Error(`Expected 9 slides, found ${slides}.`);
 for (const required of ['ArrowRight', "' '", 'touchstart', 'requestFullscreen', 'aria-label', 'prefers-reduced-motion']) {

@@ -7,8 +7,11 @@
   const nextButton = document.querySelector('#next');
   let index = 0, touchStart = null;
   const scale = () => {
-    const ratio = Math.min(innerWidth / 1920, innerHeight / 1080);
-    stage.style.transform = `translate(${(innerWidth - 1920 * ratio) / 2}px, ${(innerHeight - 1080 * ratio) / 2}px) scale(${ratio})`;
+    // Fit the 16:9 stage above the controls, including on short phone screens.
+    const viewport = document.querySelector('#presentation');
+    const width = viewport.clientWidth, height = viewport.clientHeight;
+    const ratio = Math.min(width / 1920, height / 1080);
+    stage.style.transform = `translate(${(width - 1920 * ratio) / 2}px, ${(height - 1080 * ratio) / 2}px) scale(${ratio})`;
   };
   const updateControls = () => { prev.disabled = index === 0; nextButton.disabled = index === slides.length - 1; };
   const show = (next) => {

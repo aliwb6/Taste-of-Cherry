@@ -1,14 +1,14 @@
 """Run with Python Playwright and a locally installed Chromium browser.
 
 TASTE_CHROME can point to a Chromium executable. No server is needed.
-Screenshots are written outside the repository, under /tmp/taste-check.
+Screenshots are written outside the repository, under /tmp/taste-image-check.
 """
 import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = Path('/tmp/taste-check')
+OUT = Path('/tmp/taste-image-check')
 OUT.mkdir(exist_ok=True)
 
 with sync_playwright() as p:
@@ -21,7 +21,7 @@ with sync_playwright() as p:
     assert page.locator('.slide').count() == 9
     assert page.locator('#prev').is_disabled()
     assert page.locator('img').evaluate_all('(images) => images.every(i => i.complete && i.naturalWidth > 0)')
-    for width, height in [(1280, 720), (1920, 1080), (1024, 768), (390, 844)]:
+    for width, height in [(1920, 1080), (1366, 768), (1280, 800), (768, 1024), (390, 844), (844, 390)]:
         page.set_viewport_size({'width': width, 'height': height})
         page.keyboard.press('Home')
         for i in range(9):
@@ -35,6 +35,28 @@ with sync_playwright() as p:
             assert stage['x'] + stage['width'] <= width + 1
             assert stage['y'] + stage['height'] <= height + 1
             assert abs(stage['width'] / stage['height'] - 16/9) < .001
+            # Compare actual image boxes with the natural image ratio, not just
+            # the HTML width/height metadata. Every edge must be visible and
+            # no image may overlap text or grow beyond its native stage size.
+            image_issues = page.locator('.slide.active').evaluate('''slide => {
+              const img = slide.querySelector('.film-image');
+              const frame = img.closest('.film-frame').getBoundingClientRect();
+              const b = img.getBoundingClientRect();
+              const style = getComputedStyle(img);
+              const stage = document.querySelector('#stage').getBoundingClientRect();
+              const scale = stage.width / 1920;
+              const problems = [];
+              if (style.objectFit !== 'contain') problems.push('Image can crop');
+              if (Math.abs((b.width/b.height) / (img.naturalWidth/img.naturalHeight) - 1) > .005) problems.push('Image distorted');
+              if (b.left < frame.left-1 || b.right > frame.right+1 || b.top < frame.top-1 || b.bottom > frame.bottom+1) problems.push('Image outside frame');
+              if (b.width > img.naturalWidth*scale+1 || b.height > img.naturalHeight*scale+1) problems.push('Image upscaled');
+              for (const el of slide.querySelectorAll('.reveal,.techniques,.director-years,.corner-note,.award-foot,.thanks')) {
+                const t = el.getBoundingClientRect();
+                if (b.left < t.right && b.right > t.left && b.top < t.bottom && b.bottom > t.top) problems.push('Image overlaps '+el.className);
+              }
+              return problems;
+            }''')
+            assert not image_issues, (width, height, i+1, image_issues)
             overflow = page.locator('.slide.active').evaluate('''slide => {
               const box = slide.getBoundingClientRect();
               return [...slide.querySelectorAll('h1,h2,p,.techniques article')].filter(el => {
@@ -44,8 +66,8 @@ with sync_playwright() as p:
               }).map(el => el.textContent);
             }''')
             assert not overflow, (width, i+1, overflow)
-            if width in (1280, 390):
-                page.screenshot(path=str(OUT / f'{width}-slide-{i+1}.png'))
+            page.screenshot(path=str(OUT / f'{width}x{height}-slide-{i+1}.png'))
+            assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
         assert page.locator('#next').is_disabled()
     page.keyboard.press('Home')
     page.keyboard.press('Space')
@@ -67,6 +89,11 @@ with sync_playwright() as p:
     page.wait_for_function('!!document.fullscreenElement')
     # fullscreenElement changes before the fullscreenchange event updates ARIA.
     page.wait_for_function("document.querySelector('#fullscreen').getAttribute('aria-pressed') === 'true'")
+    full_stage = page.locator('#stage').bounding_box()
+    full_viewport = page.locator('#presentation').bounding_box()
+    assert full_stage['x'] >= -1 and full_stage['y'] >= -1
+    assert full_stage['x'] + full_stage['width'] <= full_viewport['width'] + 1
+    assert full_stage['y'] + full_stage['height'] <= full_viewport['height'] + 1
     page.keyboard.press('f')
     page.wait_for_function('!document.fullscreenElement')
     page.wait_for_function("document.querySelector('#fullscreen').getAttribute('aria-pressed') === 'false'")
@@ -81,4 +108,4 @@ with sync_playwright() as p:
     assert page.locator('.slide.active').evaluate('el => getComputedStyle(el).transitionDuration') == '0s'
     assert not errors, errors
     browser.close()
-print('PASS: offline images, all 9 slides at 4 sizes, text bounds, keyboard, buttons, rapid navigation, native fullscreen, swipe, reduced motion, and JS errors.')
+print('PASS: all 9 slides at 6 sizes, uncropped native-ratio images, no upscaling, no image/text overlap, viewport bounds, keyboard, buttons, native fullscreen, swipe, reduced motion, offline loading and JS errors.')

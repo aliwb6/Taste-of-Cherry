@@ -7,13 +7,15 @@ Downloaded 24 October 2026 from the official **Janus Films** page for *Taste of 
 
 All three photographs are authentic distributor-supplied stills from *Taste of Cherry* (Abbas Kiarostami, 1997). Cinematography: Homayoun Payvar. Courtesy of Janus Films. Copyright belongs to the film's respective rights holders, not this project. No individual still photographer is named in the package.
 
-## File record
+## Original file record (before manual image selections)
+
+The user later selected additional images in `index.html` and replaced some filenames below. This list records the original distributor download, not the current slide mapping. The sizing fix preserves every current image file and selection.
 
 - `stills/soldier.jpg`: original `45 image 2.jpg`, 3191 × 2057 pixels. The young soldier sits in Mr. Badii's car; dry hills appear through the window. Used on slides 2, 4, and 5.
 - `stills/bagheri.jpg`: original `45 image 3.jpg`, 3139 × 2037 pixels. Mr. Bagheri talks in the car. Used on slides 6 and 8.
 - `stills/gates.jpg`: original `45 image 4.jpg`, 3107 × 2105 pixels. Mr. Badii walks through open gates. Used on slides 1, 3, 7, and 9. On slide 3 this is an example of the director's work, **not a portrait of Kiarostami**.
 
-The files are unaltered copies. CSS uses `object-fit: cover` to crop them without stretching. Text overlays are separate from the image files. No colour grading, artificial scenery, image generation, or invented shots are used.
+The sizing fix does not alter image files. CSS uses `object-fit: contain` in centred frames, with automatic sizes capped by the frame and the source dimensions. The complete image is shown without stretching, cropping, or upscaling. Text sits outside the image frames.
 
 ## Permission limits and missing images
 

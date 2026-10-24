@@ -4,29 +4,31 @@
 html,body { width:100%; height:100%; margin:0; overflow:hidden; background:#20231f; }
 body { color:var(--ink); font-family:"Trebuchet MS","Segoe UI",sans-serif; }
 button { font:inherit; touch-action:manipulation; }
-#presentation { position:fixed; inset:0; overflow:hidden; }
+#presentation { position:fixed; inset:0 0 calc(82px + env(safe-area-inset-bottom)); overflow:hidden; }
 .deck-stage { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:hidden; transform-origin:0 0; background:var(--paper); }
 .slide { position:absolute; inset:0; width:1920px; height:1080px; overflow:hidden; visibility:hidden; opacity:0; pointer-events:none; background:var(--paper); transition:opacity var(--duration-slow) var(--ease-smooth-out),visibility 0s linear var(--duration-slow); }
 .slide.active { visibility:visible; opacity:1; pointer-events:auto; z-index:1; transition-delay:0s; }
-.film-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
-.slide::after { content:""; position:absolute; inset:0; pointer-events:none; }
+/* Each photo gets its own proportional area inside the scaled stage.
+   Auto sizing and intrinsic HTML dimensions prevent upscaling small sources.
+   Contain preserves every edge; any unused space becomes a quiet matte. */
+.film-frame { position:absolute; left:48%; top:10%; width:47%; height:77%; margin:0; padding:28px; display:grid; grid-template: minmax(0,1fr) / minmax(0,1fr); place-items:center; background:rgba(36,40,33,.07); }
+.film-image { display:block; width:auto; height:auto; max-width:100%; max-height:100%; min-width:0; min-height:0; object-fit:contain; object-position:center; }
 h1,h2,p { margin:0; }
 h1,h2 { font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif; font-weight:400; letter-spacing:-.045em; line-height:1.02; }
 h1 { font-size:172px; } h2 { font-size:112px; } p { font-size:36px; line-height:1.48; }
 .credit { font-size:23px; line-height:1.3; margin-bottom:40px; letter-spacing:.035em; }
 .reveal,.techniques,.director-years,.corner-note,.award-foot,.thanks { position:absolute; z-index:2; }
 .reveal { width:760px; } .reveal h2 { margin-bottom:45px; }
-.opening { color:var(--light); }
-.opening .film-image { object-position:center 48%; }
-.opening::after { background:linear-gradient(90deg,rgba(14,22,18,.88),rgba(14,22,18,.52) 38%,transparent 70%); }
-.opening-copy { top:260px; left:145px; width:900px; }
-.opening h1 { margin-bottom:50px; } .subline { font-size:32px; }
+.opening { color:var(--light); background:#242821; }
+.opening .film-frame { left:48%; top:14%; width:47%; height:68%; background:rgba(225,223,203,.05); }
+.opening-copy { top:260px; left:145px; width:700px; }
+.opening h1 { font-size:145px; margin-bottom:50px; } .subline { font-size:32px; }
 .corner-note { left:150px; bottom:125px; font-size:25px; }
-.hook .film-image { left:870px; width:1050px; object-position:67% center; }
+.hook .film-frame { left:47%; }
 .hook-copy { top:190px; left:140px; width:720px; }
 .hook h2 { font-size:118px; }
 .hook-copy > p:last-child { font-size:38px; line-height:1.7; margin-top:65px; }
-.director .film-image { width:900px; object-position:57% center; }
+.director .film-frame { left:5%; width:42%; }
 .director-copy { top:158px; left:1005px; width:770px; }
 .director h2 { font-size:108px; }
 .director .lede { font-size:34px; line-height:1.35; margin-bottom:34px; }
@@ -34,38 +36,37 @@ h1 { font-size:172px; } h2 { font-size:112px; } p { font-size:36px; line-height:
 .director-years { bottom:120px; left:1010px; display:flex; align-items:center; gap:25px; font-size:25px; }
 .director-years i { width:100px; border-top:1px solid var(--olive); }
 .story { color:var(--light); background:#242821; }
-.story .film-image { left:860px; width:1060px; object-position:70% center; }
+.story .film-frame { left:47%; background:rgba(225,223,203,.05); }
 .story-paper { top:180px; left:140px; width:720px; }
 .story h2 { font-size:120px; }
 .story p:not(.credit) { font-size:34px; line-height:1.65; }
 .story .quiet { margin-top:38px; color:#d2cfb5; }
-.visual .film-image { width:1920px; height:670px; object-position:center 30%; }
-.visual::after { background:linear-gradient(90deg,rgba(16,23,18,.76),rgba(16,23,18,.54) 42%,transparent 72%); height:670px; }
-.visual-copy { left:140px; top:105px; width:850px; color:var(--light); }
-.visual h2 { font-size:104px; }
+.visual .film-frame { left:48%; top:9%; width:47%; height:53%; }
+.visual-copy { left:140px; top:145px; width:710px; }
+.visual h2 { font-size:100px; }
 .techniques { left:140px; right:140px; top:752px; display:grid; grid-template-columns:repeat(3,1fr); gap:75px; }
 .techniques article { border-top:1px solid #959a81; padding-top:24px; }
 .techniques b { display:block; font-size:29px; font-weight:400; margin-bottom:13px; }
 .techniques span { font-size:31px; line-height:1.4; }
-.meanings .film-image { left:910px; width:1010px; object-position:75% center; }
+.meanings .film-frame { left:48%; }
 .meanings-copy { left:140px; top:170px; width:725px; }
 .meanings h2 { font-size:116px; }
 .meaning-list { margin-top:65px; display:grid; gap:30px; }
 .meaning-list p { font-size:34px; }
 .recognition { background:#323b30; color:var(--light); }
-.recognition .film-image { left:920px; width:1000px; object-position:60% center; }
+.recognition .film-frame { left:48%; background:rgba(225,223,203,.05); }
 .recognition-copy { top:155px; left:140px; width:700px; }
 .award { font-size:37px; color:#d8d5b7; margin:60px 0 30px; }
 .recognition h2 { font-size:145px; line-height:.95; }
 .recognition-copy > p:last-child { font-size:33px; line-height:1.5; }
 .award-foot { left:140px; bottom:115px; width:700px; font-size:24px; line-height:1.4; }
-.interpretation .film-image { width:1920px; height:1080px; object-position:center; }
-.interpretation::after { background:linear-gradient(90deg,rgba(20,26,21,.94),rgba(20,26,21,.8) 40%,rgba(20,26,21,.05) 72%); }
-.interpretation-copy { top:220px; left:140px; width:870px; color:var(--light); }
-.interpretation h2 { font-size:108px; }
+.interpretation { background:#242821; }
+.interpretation .film-frame { left:48%; background:rgba(225,223,203,.05); }
+.interpretation-copy { top:220px; left:140px; width:730px; color:var(--light); }
+.interpretation h2 { font-size:100px; }
 .interpretation-copy > p:last-child { width:690px; font-size:36px; line-height:1.55; margin-top:60px; }
 .closing { background:var(--paper); }
-.closing .film-image { inset:0 0 auto auto; width:1920px; height:650px; object-position:center 35%; }
+.closing .film-frame { left:5%; top:4%; width:90%; height:56%; padding:18px; }
 .closing-copy { top:700px; left:140px; width:1630px; }
 .closing-copy .credit { display:none; }
 .closing h2 { font-size:84px; margin-bottom:25px; }
