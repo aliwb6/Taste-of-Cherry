@@ -1,45 +1,74 @@
-# Taste of Cherry — speaker notes
+# Taste of Cherry — my talk
 
-These notes are written for a 7–9 minute presentation. Adjust the pauses to your own speaking pace.
+Read slowly. Stop for a short time between ideas. The talk has about 830 words. At about 105–115 words a minute, with short stops, it takes about 8–9 minutes. Practise once with a clock. The words in brackets are things to do. Do not read them aloud.
 
-## 1. Opening — about 40 seconds
+## Slide 1 — Opening
 
-Hello everyone. Today I want to introduce *Taste of Cherry*, a 1997 Iranian film directed by Abbas Kiarostami. It is a very quiet film: much of it takes place in a car, on dusty roads outside Tehran. But its questions are not small. The film asks us to think about life, despair, choice, and the strange importance of being heard. Rather than giving us a dramatic plot with clear answers, it gives us time and space to look closely.
+Hello everyone. Today I want to talk about a film called *Taste of Cherry*. It is an Iranian film from 1997. Abbas Kiarostami made it. The film is in Persian. We can watch it with English words at the bottom of the screen.
 
-## 2. The Hook — about 45 seconds
+This is a quiet film. We see a man, a car, and roads near Tehran. There are no big action scenes. But the film asks a big question about life. I want to tell you about the story, the pictures, and my own ideas.
 
-I want to begin with a question: what can make a person choose tomorrow? This is not a question with one correct answer, and the film never pretends that there is one. Instead, it lets several people speak from their own experiences. For me, that is the hook of the film. It does not ask us to judge a character from a safe distance. It asks us to sit with uncertainty, and to notice how another person’s words can matter.
+[Look at the class. Change the slide.]
 
-## 3. The Director — about 55 seconds
+## Slide 2 — A question
 
-The director, Abbas Kiarostami, was born in Tehran in 1940 and worked not only as a filmmaker, but also as a photographer and poet. He is one of the most important figures in Iranian cinema, especially the Iranian New Wave. His work often makes the boundary between fiction and real life feel less certain. He used everyday places, non-professional performers in many films, and open endings. His style may look simple at first, but it leaves a great deal for the audience to complete. That is why his films can feel so personal.
+First, I have a question. What makes life special for you? Maybe it is your family. Maybe it is a friend, a song, or a walk outside. You do not need to answer now. Just think about one small thing.
 
-## 4. The Story — about 60 seconds
+[Stop for three seconds.]
 
-The central character is Mr. Badii. He drives through the hilly outskirts of Tehran, looking for someone to help him with a very private and serious request. I will not reveal the ending, because the experience of uncertainty is important to the film. During his drive, he meets different people: a young soldier, a seminarian, and a taxidermist. Each person responds differently. Their conversations bring in questions of belief, responsibility, money, suffering, and compassion. The film does not explain everything about Badii. Instead, it lets his silence remain part of the story.
+The man in this film is very sad. Things that make other people happy may not help him. We do not know all his problems. The film asks us to listen to him. It also asks us to look at the people around him. Now, let us meet the director.
 
-## 5. Visual Storytelling — about 60 seconds
+## Slide 3 — The director
 
-Kiarostami tells this story visually as much as verbally. The dry hills, unpaved roads, and wide open spaces are not just backgrounds. They make us feel distance and isolation. The long takes are also important. They ask us to wait, to listen, and to observe small changes in a face or a landscape. There is very little unnecessary music or fast editing. Even the car becomes a moving space for conversation. The result is that we become active viewers: we have to pay attention to what is said, what is not said, and what we see outside the windows.
+Abbas Kiarostami was born in Tehran in 1940. He died in 2016. He made films. He also took photos and wrote poems. He was an important director in Iran. People in many countries watched his work.
 
-## 6. Deeper Meanings — about 70 seconds
+His films often show everyday life. People walk, drive, talk, and work. These things look simple, but they can make us think. In his films, we do not always get every answer. We can bring our own ideas to the story. I think this makes his films interesting. *Taste of Cherry* is a good example of his work.
 
-Because of its subject, the film needs to be discussed with care. It explores despair, but it does not treat it as entertainment or as a simple problem with a simple solution. I think the deeper meaning is about attention. Loneliness can make the world feel closed, while a human encounter can make it feel slightly more open. The people Badii meets do not become perfect heroes. They simply bring their own memories and points of view. The film also notices ordinary details of the natural world. These details do not solve everything, but they invite us to consider why small experiences can matter.
+## Slide 4 — The story
 
-## 7. International Recognition — about 45 seconds
+The main person is Mr. Badii. Homayoun Ershadi plays him. He drives near Tehran. He talks to people and asks for help. He does not want to live any more. He wants someone to come the next morning and check if he is alive. This is a sad and difficult subject. We should talk about it with care.
 
-In 1997, *Taste of Cherry* won the Palme d’Or at the Cannes Film Festival. It shared the prize with Shohei Imamura’s *The Eel*. Kiarostami’s film was the first Iranian film to win Cannes’s top award. This mattered because it brought major international attention to Iranian cinema and showed that a film with a very local setting could speak to audiences around the world. Its achievement was not based on spectacle; it was based on patience, precision, and a deeply human question.
+He meets a young soldier, a man who studies religion, and an older man who works in a museum. They do not all give the same answer. I will not tell you the ending. Let us look at how the film tells this story.
 
-## 8. My Interpretation — about 60 seconds
+## Slide 5 — The pictures
 
-My own interpretation is that this is a film that trusts its audience. It does not tell me exactly what to think, and it does not give me an easy emotional release. At first, that can be challenging. But I think this is also its strength. The film makes listening feel important. It suggests that a conversation can be imperfect and still be meaningful. I would recommend it to people who are willing to slow down and think after the screen goes dark, rather than expecting every idea to be explained immediately.
+Look at the picture. We can see a person inside the car. Outside the window, the hills look dry and pale. The colours are often brown, beige, and soft green. The light feels natural.
 
-## 9. Closing — about 35 seconds
+The camera often stays with a scene for a long time. We have time to look at a face or a hill. We hear people talking, the car, and sounds from outside. Some parts are quiet. Other parts have long talks. The film does not hurry. It asks us to slow down too. These pictures and sounds help us feel the story.
 
-To close, I think *Taste of Cherry* stays with us because it does not force an answer. It leaves us with a question, a road, and a series of encounters. It reminds us that meaning may not arrive as one dramatic event; sometimes it is found in a voice, a landscape, or a small ordinary pleasure. So I would like to leave you with this question: what small, ordinary thing makes life feel meaningful to you? Thank you.
+## Slide 6 — The ideas
 
-## Sources used for factual preparation
+For me, one important idea is that we need other people. Mr. Badii often seems alone, even when someone sits next to him. Talking is not always easy. Listening is not always easy either.
 
-- The Criterion Collection, “Taste of Cherry” — film information, premise, credits, and 1997 context.
-- Encyclopaedia Iranica, “Kiarostami, Abbas” and Cinema Iranica — biography and Iranian cinema context.
-- Festival de Cannes records — Palme d’Or, 1997 (shared with *The Eel*).
+The older man talks about his own life. He also talks about small things in the world. These things can be easy to forget when we feel bad. But the film does not say that a nice view can fix every problem. A person who feels this sad needs care and help. I think the film asks us to care before we judge.
+
+## Slide 7 — A big film prize
+
+In 1997, *Taste of Cherry* won the top prize at Cannes. Cannes is a film festival in France. The prize is called the Palme d’Or. This name means “Golden Palm”. The film shared the prize with a Japanese film called *The Eel*. Shohei Imamura made that film.
+
+*Taste of Cherry* was the first Iranian film to win this prize. This was an important moment for Iranian films. A small story from near Tehran could reach people in many countries. Now I want to explain why I think this film is worth watching.
+
+## Slide 8 — What I think
+
+I like this film because it gives me time to think. At first, it can feel slow. But then I start to notice small things. I look at the people more closely. I listen to their voices.
+
+I do not think the film tells everyone to feel the same way. Different people can have different ideas about it. For me, it shows why listening matters. We may not know how another person feels. We may not have an answer. But we can still listen and try to understand. This is why I think the film is worth our time.
+
+## Slide 9 — Closing
+
+The film ends, but we can keep thinking about it. It leaves us with questions about life and other people. For me, this is what makes it special.
+
+Let us go back to my first question. What small thing makes you happy? It can be something very simple. You can share an answer if you want to.
+
+[Stop and give the class time to answer.]
+
+Thank you for listening.
+
+## Where I checked the facts
+
+- [Janus Films](https://www.janusfilms.com/films/1037): the year, the story, and the film photos.
+- [Criterion](https://www.criterion.com/films/242-taste-of-cherry): the actors, the people in the story, and the first Iranian win.
+- [Cannes, 1997](https://www.festival-cannes.com/en/retrospective/1997/awards/): the prize and the shared win.
+- [Encyclopaedia Iranica](https://www.iranicaonline.org/articles/kiarostami-abbas/): the director’s life and work.
+
+The personal ideas on slides 6, 8, and 9 are my reading of the film. They are not words spoken in the film.
